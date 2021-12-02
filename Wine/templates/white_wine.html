@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Wine Deployment Project</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+
+<style>
+body {
+  background-image: url("https://wallpapermemory.com/download/71038");
+  background-position: 100%;
+  background-size: cover;
+}
+
+
+</style>
+
+
+
+
+ <div class="login">
+     <h1>Wine Quality</h1>
+
+     <!-- Main Input For Receivinng Query to our ML-->
+     <form action="{{url_for('predict')}}"method="post">
+         <input type="number" step=".001" name="Fixed Acidity" placeholder="Fixed Acidity" required="required"/>
+         <input type="number" step=".001" name="Volatile Acidity" placeholder="Volatile Acidity" required="required"/>
+         <input type="number" step=".001" name="Citric Acid" placeholder="Citric Acid" required="required"/>
+         <input type="number" step=".001" name="Residual Sugar" placeholder="Residual Sugar" required="required"/>
+         <input type="number" step=".001" name="Chlorides" placeholder="Chlorides" required="required"/>
+         <input type="number" step=".001" name="Free Sulfur Dioxide" placeholder="Free Sulfer Dioxide" required="required"/>
+         <input type="number" step=".001" name="Total Sulfur Dioxide" placeholder="Total Sulfer Dioxide" required="required"/>
+         <input type="number" step=".001" name="Density" placeholder="Density" required="required"/>
+         <input type="number" step=".001" name="PH" placeholder="PH" required="required"/>
+         <input type="number" step=".001" name="Sulphates" placeholder="Sulphates" required="required"/>
+         <input type="number" step=".001" name="Alcohol" placeholder="Alcohol" required="required"/>
+         
+     <button type="submit" class="btn btn-primary btn-block btn-large">Predict Wine Quality</button>
+     </form>
+
+     <br>
+     <br>
+     {{prediction_text}}
+ </div>
+</body>
+</html>
